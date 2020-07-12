@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scss/style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700;900&family=Noto+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <div class="register-header">
+        <img src="icon/BackToTheFuture.svg" alt="" class="back-icon">
+        <p>誕生日はいつ？🎁</p>
+    </div>
+    <section class="layout">
+        <form name="whatsYourName" autocomplete="off">
+            <input type="text" pattern="\d*" id="date-mask" placeholder="YYYY/MM/DD" class="input">
+            <button type="button" class="button">はじめる</button>
+        </form>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/ja.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.5/imask.min.js"></script>
+    <script src=" index.js"></script>
+</body>
+
+</html>
