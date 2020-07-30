@@ -1,46 +1,23 @@
-if (document.getElementById("date-mask").value == "YYYY/MM/DD") {
-    document.getElementById("date-mask").style.color = "#BDBDBD"
+function toggleNav() {
+    var body = document.body;
+    var hamburger = document.getElementById('js-hamburger');
+    var blackBg = document.getElementById('js-black-bg');
+    var hamburgerClose = document.getElementById('js-close');
+    hamburgerClose.classList.add('hide');
+    hamburger.addEventListener('click', function () {
+        body.classList.add('nav-open');
+        hamburger.classList.add('hide');
+        hamburgerClose.classList.remove('hide');
+    });
+    hamburgerClose.addEventListener('click', function () {
+        body.classList.remove('nav-open');
+        hamburger.classList.remove('hide');
+        hamburgerClose.classList.add('hide');
+    });
+    blackBg.addEventListener('click', function () {
+        body.classList.remove('nav-open');
+        hamburger.classList.remove('hide');
+        hamburgerClose.classList.add('hide');
+    });
 }
-var element = document.getElementById("date-mask")
-var momentFormat = 'YYYY/MM/DD';
-var momentMask = IMask(element, {
-    mask: Date,
-    pattern: momentFormat,
-    lazy: false,
-    format: function (date) {
-        return moment(date).format(momentFormat);
-    },
-    parse: function (str) {
-        return moment(str, momentFormat);
-    },
-
-    blocks: {
-        YYYY: {
-            mask: IMask.MaskedRange,
-            from: 1900,
-            to: 2020,
-            placeholderChar: 'Y'
-        },
-        MM: {
-            mask: IMask.MaskedRange,
-            from: 1,
-            to: 12,
-            placeholderChar: 'M'
-        },
-        DD: {
-            mask: IMask.MaskedRange,
-            from: 1,
-            to: 31,
-            placeholderChar: 'D'
-        }
-    }
-});
-document.addEventListener('keyup', keyUp);
-function keyUp(e) {
-    console.log(document.getElementById("date-mask").value)
-    if (document.getElementById("date-mask").value == "YYYY/MM/DD") {
-        document.getElementById("date-mask").style.color = "#BDBDBD"
-    } else {
-        document.getElementById("date-mask").style.color = "black"
-    }
-}
+toggleNav();

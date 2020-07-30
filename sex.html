@@ -12,31 +12,6 @@
 </head>
 
 <body>
-    <script type="text/javascript" language="javascript">
-        function onRadioButtonChange() {
-            check1 = document.iLoveSex.man.checked;
-            check2 = document.iLoveSex.woman.checked;
-            check3 = document.iLoveSex.other.checked;
-            var sm = document.getElementById("label-man");
-            var sw = document.getElementById("label-woman");
-            var so = document.getElementById("label-other");
-            if (check1 == true) {
-                sm.classList.add("active");
-                sw.classList.remove("active");
-                so.classList.remove("active");
-            }
-            else if (check2 == true) {
-                sm.classList.remove("active");
-                sw.classList.add("active");
-                so.classList.remove("active");
-            }
-            else if (check3 == true) {
-                sm.classList.remove("active");
-                sw.classList.remove("active");
-                so.classList.add("active");
-            }
-        }
-    </script>
     <div class="register-header">
         <img src="icon/BackToTheFuture.svg" alt="" class="back-icon">
         <p>性別を教えて？🚀</p>
@@ -44,14 +19,17 @@
     <section class="layout">
         <form name="iLoveSex" autocomplete="off">
             <div class="flex">
-                <label onchange="onRadioButtonChange();" id="label-man" for="man">
-                    <p>男性</p><input id="man" name="sex" value="sex" type="radio">
+                <input id="man" name="sex" value="sex" type="radio">
+                <label class="sex-input" id="label-man" for="man">
+                    <p>男性</p>
                 </label>
-                <label onchange="onRadioButtonChange();" id="label-woman" for="woman">
-                    <p>女性</p><input id="woman" name="sex" value="sex" type="radio">
+                <input id="woman" name="sex" value="sex" type="radio">
+                <label class="sex-input" id="label-woman" for="woman">
+                    <p>女性</p>
                 </label>
-                <label onchange="onRadioButtonChange();" id="label-other" for="other">
-                    <p>その他</p><input id="other" name="sex" value="sex" type="radio">
+                <input id="other" name="sex" value="sex" type="radio">
+                <label class="sex-input" id="label-other" for="other">
+                    <p>その他</p>
                 </label>
             </div>
         </form>

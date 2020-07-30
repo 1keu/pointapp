@@ -1,11 +1,72 @@
+@charset "UTF-8";
 @media (min-width: 544px) {
   body {
     display: none;
   }
 }
 
+.global-nav {
+  position: fixed;
+  right: -320px;
+  /* これで隠れる */
+  top: 0;
+  width: 70%;
+  /* スマホに収まるくらい */
+  height: 100vh;
+  background: #F8F6F2;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  z-index: 200;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 72px 24px 0px 24px;
+  overflow-y: auto;
+  /* メニューが多くなったらスクロールできるように */
+}
+
+.glbal-nav-list {
+  color: #383638;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+.glbal-nav-list p {
+  margin-bottom: 32px;
+}
+
+.glbal-nav-list .border {
+  height: 0px;
+  border-bottom: 1px solid #C7C4BF;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.nav-open .global-nav {
+  right: 0 !important;
+}
+
+.nav-open .black-bg {
+  opacity: .8;
+  visibility: visible;
+}
+
+.black-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: #000;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all .6s;
+  transition: all .6s;
+  cursor: pointer;
+}
+
 body {
-  background: #F4F5F7;
+  background: #F8F6F2;
   margin: auto;
   overflow-x: hidden;
   font-family: 'Noto Sans JP','Noto Sans', sans-serif;
@@ -20,12 +81,12 @@ body input {
   display: block;
   outline: none;
   padding: 0px;
-  line-height: 48px;
+  line-height: 56px;
 }
 
 body input::-webkit-input-placeholder {
   font-size: 16px;
-  color: #BDBDBD;
+  color: #C9B5A2;
   line-height: 48px;
   font-weight: 300;
   position: relative;
@@ -34,7 +95,7 @@ body input::-webkit-input-placeholder {
 
 body input:-ms-input-placeholder {
   font-size: 16px;
-  color: #BDBDBD;
+  color: #C9B5A2;
   line-height: 48px;
   font-weight: 300;
   position: relative;
@@ -43,7 +104,7 @@ body input:-ms-input-placeholder {
 
 body input::-ms-input-placeholder {
   font-size: 16px;
-  color: #BDBDBD;
+  color: #C9B5A2;
   line-height: 48px;
   font-weight: 300;
   position: relative;
@@ -52,7 +113,7 @@ body input::-ms-input-placeholder {
 
 body input::placeholder {
   font-size: 16px;
-  color: #BDBDBD;
+  color: #C9B5A2;
   line-height: 48px;
   font-weight: 300;
   position: relative;
@@ -61,31 +122,31 @@ body input::placeholder {
 
 body button {
   margin: auto;
-  height: 48px;
+  height: 56px;
   padding: 0;
   border: none;
-  background: #080808;
+  background: #383638;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 4px;
   outline: none;
 }
 
 body label {
-  height: 48px;
+  height: 56px;
   width: 100%;
-  background-color: #fefefe;
-  border-radius: 10px;
-  color: #BDBDBD;
+  border-radius: 4px;
+  background: #F5EEDF;
+  color: #C9B5A2;
 }
 
 .register-header {
   height: 56px;
   width: calc(100vw - 48px);
   font-size: 16px;
-  color: #080808;
+  color: black;
   text-align: center;
   font-weight: 700;
   position: relative;
@@ -110,7 +171,7 @@ body label {
 }
 
 .layout .input {
-  height: 48px;
+  height: 56px;
   font-size: 16px;
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -118,10 +179,11 @@ body label {
   padding-left: 16px;
   border-radius: 10px;
   margin-bottom: 24px;
+  background: #F5EEDF;
 }
 
 .layout .check-this {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 130%;
   margin-bottom: 12px;
 }
@@ -144,29 +206,721 @@ body label {
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
   text-align: center;
-  color: white;
+  color: #C9B5A2;
   font-size: 16px;
-  line-height: 48px;
+  line-height: 56px;
   -webkit-column-gap: 8px;
           column-gap: 8px;
 }
 
-.layout .active {
+.layout #man:checked ~ #label-man {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
-  background: #080808;
+  background: #383638;
+  color: white;
+}
+
+.layout #woman:checked ~ #label-woman {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  background: #383638;
+  color: white;
+}
+
+.layout #other:checked ~ #label-other {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  background: #383638;
+  color: white;
+}
+
+.layout .sex-input {
+  background: #F5EEDF;
+  color: #C9B5A2;
+}
+
+.layout #other {
+  display: none;
+}
+
+.layout #woman {
+  display: none;
+}
+
+.layout #man {
+  display: none;
+}
+
+#app .header-container {
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 100;
+  background: #F8F6F2;
+}
+
+#app .header-container .header {
+  height: 56px;
+  width: 100%;
+  padding: 0px 24px;
+  margin: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+  line-height: 56px;
+}
+
+#app .header-container .header .back-icon {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#app .header-container .header .menu-icon {
+  position: absolute;
+  right: 24px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 200;
+  height: 32px;
+  width: 32px;
+  background: url(../icon/menu.svg);
+}
+
+#app .header-container .header .hide {
+  display: none;
+}
+
+#app .header-container .header .close-icon {
+  position: absolute;
+  right: 24px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 200;
+  height: 32px;
+  width: 32px;
+  background: url(../icon/close.svg);
+}
+
+#app .header-container-non {
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 100;
+  background: none;
+}
+
+#app .header-container-non .header {
+  height: 56px;
+  width: 100%;
+  padding: 0px 24px;
+  margin: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+  line-height: 56px;
+}
+
+#app .header-container-non .header .back-icon {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#app .header-container-non .header .menu-icon {
+  position: absolute;
+  right: 24px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#app .mypage {
+  padding-top: 56px;
+  font-size: 16px;
+}
+
+#app .mypage .mypage-email, #app .mypage .mypage-person, #app .mypage .mypage-password {
+  height: auto;
+  line-height: 100%;
+  text-align: right;
+  padding: 16px 0px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 45% 47% 8%;
+      grid-template-columns: 45% 47% 8%;
+}
+
+#app .mypage .mypage-email .mypage-label, #app .mypage .mypage-person .mypage-label, #app .mypage .mypage-password .mypage-label {
+  padding-top: 2px;
+  text-align: left;
+}
+
+#app .mypage .mypage-email .mypage-data, #app .mypage .mypage-person .mypage-data, #app .mypage .mypage-password .mypage-data {
+  text-align: right;
+  font-size: 16px;
+  font-weight: bold;
+  overflow: hidden;
+  width: 100%;
+}
+
+#app .mypage .mypage-email .mypage-data p, #app .mypage .mypage-person .mypage-data p, #app .mypage .mypage-password .mypage-data p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 2px;
+  color: #BEBBB5;
+}
+
+#app .mypage .mypage-email .forward-icon, #app .mypage .mypage-person .forward-icon, #app .mypage .mypage-password .forward-icon {
+  text-align: right;
+  vertical-align: top;
+  margin-right: 0px;
+  margin-left: auto;
+}
+
+#app .mypage .mypage-person, #app .mypage .mypage-email {
+  border-bottom: 1px solid #C7C4BF;
+}
+
+#app .mypage .section-border {
+  height: 0px;
+  width: 100%;
+  border-bottom: 1px solid #C7C4BF;
+}
+
+#app .mypage .logout {
+  height: auto;
+  text-align: center;
+  color: #EB5757;
+}
+
+#app .mypage .logout-button {
+  padding: 16px 24px;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#app .history {
+  padding-top: 72px;
+}
+
+#app .history .history-card {
+  height: auto;
+  background: #F5EEDF;
+  padding: 16px;
+  border-radius: 10px;
+  line-height: 100%;
+  margin-top: 8px;
+}
+
+#app .history .history-card .history-header {
+  font-size: 12px;
+  color: #C9B5A2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  margin-bottom: 4px;
+}
+
+#app .history .history-card .history-header .history-balance {
+  text-align: right;
+}
+
+#app .history .history-card .history-content {
+  font-size: 16px;
+  color: #383638;
+  display: -ms-grid;
+  display: grid;
+  font-weight: bold;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+#app .history .history-card .history-content .history-point {
+  text-align: right;
+}
+
+#app .history .history-card:nth-child(1) {
+  margin-top: 0px;
+}
+
+#app .mypage-detail {
+  padding-top: 68px;
+}
+
+#app .mypage-detail .sex-form {
+  margin-bottom: 24px;
+}
+
+#app .mypage-detail .birthday-form {
+  margin-bottom: 24px;
+}
+
+#app .mypage-detail .birthday-form .input {
+  margin-bottom: 8px;
+}
+
+#app .mypage-detail .birthday-form p {
+  line-height: 100%;
+  font-size: 12px;
+}
+
+#app .restaurant {
+  padding-top: 56px;
+}
+
+#app .restaurant .restaurant-img {
+  position: relative;
+  width: 100%;
+  background: #BDBDBD;
+}
+
+#app .restaurant .restaurant-img:before {
+  content: "";
+  display: block;
+  padding-top: 65%;
+  /* 高さを幅の75%に固定 */
+}
+
+#app .restaurant .restaurant-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#app .restaurant .restaurant-container {
+  height: auto;
+  padding: 20px 0px 24px 0px;
+}
+
+#app .restaurant .restaurant-container .restaurant-name {
+  line-height: 130%;
+  height: auto;
+  font-size: 24px !important;
+  font-weight: bold;
+  margin-bottom: 21px;
+}
+
+#app .restaurant .restaurant-container .restaurant-label {
+  line-height: 100%;
+  color: #B69C82;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+#app .restaurant .restaurant-container .restaurant-time {
+  height: auto;
+  margin-bottom: 16px;
+}
+
+#app .restaurant .restaurant-container .restaurant-time .restaurant-value {
+  font-size: 16px;
+  line-height: 100%;
+  margin-bottom: 8px;
+}
+
+#app .restaurant .restaurant-container .restaurant-time .restaurant-value-1 {
+  font-size: 16px;
+  line-height: 100%;
+}
+
+#app .restaurant .restaurant-container .restaurant-phone {
+  height: auto;
+  margin-bottom: 16px;
+}
+
+#app .restaurant .restaurant-container .restaurant-phone .restaurant-value {
+  font-size: 16px;
+  line-height: 100%;
+  margin-bottom: 8px;
+}
+
+#app .restaurant .restaurant-container .restaurant-location {
+  height: auto;
+}
+
+#app .restaurant .restaurant-container .restaurant-location .restaurant-value {
+  font-size: 16px;
+  line-height: 100%;
+  margin-bottom: 8px;
+}
+
+#app .restaurant .low {
+  height: auto;
+  width: 100%;
+  border-bottom: 1px solid #C7C4BF;
+  border-top: 1px solid #C7C4BF;
+}
+
+#app .restaurant .low .low-link {
+  padding: 16px 0px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 80% 20%;
+      grid-template-columns: 80% 20%;
+  border-bottom: 1px solid #C7C4BF;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+#app .restaurant .low .low-link p {
+  text-align: left;
+}
+
+#app .restaurant .low .low-link .forward-icon {
+  margin-left: auto;
+  margin-right: 0px;
+}
+
+#app .restaurant .low .low-link:nth-child(3) {
+  border-bottom: none;
+}
+
+#app .restaurant .varsion {
+  height: auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 24px 0px;
+  color: #B69C82;
+}
+
+#app .coupon-detail .coupon-detail-img {
+  position: relative;
+  width: 100%;
+  background: #BDBDBD;
+}
+
+#app .coupon-detail .coupon-detail-img .coupon-detaul-necessary-point {
+  position: absolute;
+  bottom: 16px;
+  left: 24px;
+  background: #ffffff;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 100%;
+  padding: 8px 16px;
+  border-radius: 16px;
+  color: #D4A87D;
+}
+
+#app .coupon-detail .coupon-detail-img .coupon-detaul-necessary-point span {
+  color: #C9B5A2;
+}
+
+#app .coupon-detail .coupon-detail-img:before {
+  content: "";
+  display: block;
+  padding-top: 65%;
+  /* 高さを幅の75%に固定 */
+}
+
+#app .coupon-detail .coupon-detail-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#app .coupon-detail .coupon-detail-container {
+  padding: 24px 0px;
+  height: auto;
+  margin: auto;
+  width: calc(100% - 48px);
+}
+
+#app .coupon-detail .coupon-detail-container .expire {
+  font-size: 12px;
+  color: #B69C82;
+  font-weight: bold;
+  line-height: 100%;
+  margin-bottom: 11px;
+}
+
+#app .coupon-detail .coupon-detail-container .coupon-detail-name {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 11px;
+}
+
+#app .coupon-detail .coupon-detail-container .coupon-detail-value {
+  font-size: 24px;
+  line-height: 1;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+#app .coupon-detail .coupon-detail-container .coupon-detail-value span {
+  color: #B69C82;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: line-through;
+}
+
+#app .coupon-detail .coupon-detail-container .button {
+  text-align: center;
+  line-height: 100%;
+}
+
+#app .coupon-detail .coupon-detail-container .button p {
+  display: inline-block;
+}
+
+#app .coupon-detail .coupon-detail-container .button .coupon-qr {
+  height: 16px;
+  width: 16px;
+  top: 2px;
+  position: relative;
+  margin-right: 4px;
+  display: inline-block;
+  background: url(../icon/qr.svg);
+}
+
+#app .coupon-detail .coupon-detail-container .howto {
+  height: auto;
+  line-height: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+#app .coupon-list {
+  padding: 8px 0px 0px 0px;
+}
+
+#app .coupon-list .coupon-section-name {
+  font-size: 24px;
+  line-height: 100%;
+  margin-bottom: 24px;
+}
+
+#app .coupon-list .coupon-section {
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  display: -ms-grid;
+  display: grid;
+  -webkit-column-gap: 16px;
+          column-gap: 16px;
+}
+
+#app .menu {
+  padding-top: 72px;
+  display: -ms-grid;
+  display: grid;
+  padding-bottom: 32px;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 16px;
+          column-gap: 16px;
+  row-gap: 16px;
+}
+
+#app .menu .a-menu .a-menu-img {
+  position: relative;
+  height: 102px;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #F5EEDF;
+  margin-bottom: 8px;
+}
+
+#app .menu .a-menu .a-menu-img .a-menu-necessary-point {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: white;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 100%;
+  padding: 4px 8px;
+  border-radius: 10px;
+  color: #D4A87D;
+}
+
+#app .menu .a-menu .a-menu-img .a-menu-necessary-point span {
+  color: #C9B5A2;
+}
+
+#app .menu .a-menu .a-menu-name {
+  line-height: 1.2;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+#app .menu .a-menu .a-menu-price {
+  font-weight: bold;
+  line-height: 100%;
+  font-size: 12px;
+  color: #bd854e;
+}
+
+#app .top {
+  padding-top: 72px;
+}
+
+#app .top .top-point {
+  height: auto;
+  padding: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #F5EEDF;
+  margin-bottom: 32px;
+}
+
+#app .top .top-point .top-point-balance {
+  height: auto;
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 8px;
+}
+
+#app .top .top-point .top-point-balance p {
+  display: inline-block;
+}
+
+#app .top .top-point .top-point-balance .link-icon {
+  height: 16px;
+  vertical-align: top;
+}
+
+#app .top .top-point .top-points {
+  height: auto;
+  position: relative;
+}
+
+#app .top .top-point .top-points .top-points-p {
+  height: 40px;
+}
+
+#app .top .top-point .top-points .top-points-p .top-points-pp {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+#app .top .top-point .top-points .top-points-p .top-points-pp span {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+#app .top .top-point .top-points .top-qr-scan {
+  background-color: #383638;
+  display: inline-block;
+  position: absolute;
+  padding: 0px 16px;
+  border-radius: 3px;
+  height: 36px;
+  top: 4px;
+  right: 0;
+}
+
+#app .top .top-point .top-points .top-qr-scan img {
+  height: 12px;
+  vertical-align: middle;
+  width: 12px;
+}
+
+#app .top .top-point .top-points .top-qr-scan p {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 100%;
+  font-weight: bold;
+  vertical-align: middle;
   color: #fff;
 }
 
-.layout #label-man input {
-  display: none;
+#app .top .coupon-s {
+  height: auto;
 }
 
-.layout #label-woman input {
-  display: none;
+#app .top .coupon-s .title-c {
+  line-height: 32px;
+  font-size: 24px;
+  margin-bottom: 24px;
+  font-weight: 700;
 }
 
-.layout #label-other input {
-  display: none;
+#app .top .coupon-s .coupon-l {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 12px;
+          column-gap: 12px;
+  row-gap: 16px;
+}
+
+#app .top .coupon-s .coupon-l .a-coupon .a-coupon-tag {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  color: #D4B18F;
+}
+
+#app .top .coupon-s .coupon-l .a-coupon .a-coupon-img {
+  position: relative;
+  height: 102px;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #F5EEDF;
+  margin-bottom: 8px;
+}
+
+#app .top .coupon-s .coupon-l .a-coupon .a-coupon-img .a-coupon-necessary-point {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: white;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 100%;
+  padding: 4px 8px;
+  border-radius: 10px;
+  color: #D4A87D;
+}
+
+#app .top .coupon-s .coupon-l .a-coupon .a-coupon-img .a-coupon-necessary-point span {
+  color: #C9B5A2;
+}
+
+#app .top .coupon-s .coupon-l .a-coupon .a-coupon-name {
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+#app .top .coupon-s .coupon-l .a-coupon .a-coupon-price {
+  font-weight: bold;
+  line-height: 24px;
+  font-size: 16px;
+  color: #bd854e;
 }
 /*# sourceMappingURL=style.css.map */
