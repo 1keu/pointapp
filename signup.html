@@ -17,15 +17,17 @@
         <p>アカウント作成🎉</p>
     </div>
     <section class="layout">
-        <form name="whatsYourName" autocomplete="off">
+        <form name="signup" autocomplete="off">
             <input type="email" placeholder="メールアドレスを入力" required class="input">
             <div>
-                <img class="visible" src="icon/visibility_24px_outlined.svg" alt="">
+                <input class="visible-input" id="visiblity" name="password-visible" type="checkbox">
+                <label class="visible" for="visiblity"></label>
                 <input type="password" size="6" maxlength="15" placeholder="パスワードを入力(6文字以上)" required
                     class="input password">
             </div>
             <p class="check-this">はじめるを押すと<span>利用規約</span>と<span>プライバシーポリシー</span>に同意したことになります。</p>
             <button type="button" class="button">はじめる</button>
+            <p class="have-account">既にアカウントをお持ちの方は<span>こちら</span></p>
         </form>
     </section>
 </body>

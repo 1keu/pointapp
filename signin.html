@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scss/style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700;900&family=Noto+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <section class="layout">
+        <div class="register-header">
+            <img src="icon/BackToTheFuture.svg" alt="" class="back-icon">
+            <p>おかえりなさい✋</p>
+        </div>
+        <section class="layout">
+            <form name="login" autocomplete="off">
+                <input type="email" placeholder="メールアドレスを入力" required class="input">
+                <div>
+                    <input class="visible-input" id="visiblity" name="password-visible" type="checkbox">
+                    <label class="visible" for="visiblity"></label>
+                    <input type="password" size="6" maxlength="15" placeholder="パスワードを入力(6文字以上)" required
+                        class="input password">
+                </div>
+                <button type="button" class="button">サインイン</button>
+                <p class="have-account">アカウントをお持ちでない方は<span>こちら</span></p>
+            </form>
+        </section>
+    </section>
+</body>
+
+</html>

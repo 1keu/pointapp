@@ -183,9 +183,44 @@ body label {
 }
 
 .layout .check-this {
-  font-size: 16px;
-  line-height: 130%;
-  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 16px;
+}
+
+.layout .check-this span {
+  color: #D5B18F;
+}
+
+.layout .visible {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 16px;
+  margin: auto;
+  height: 24px;
+  width: 24px;
+  z-index: 10;
+  background: url(../icon/visibility_24px_outlined.svg);
+}
+
+.layout .visible-input {
+  display: none;
+}
+
+.layout .visible-input:checked ~ .visible {
+  background: url(../icon/visibility_off_24px_outlined.svg);
+}
+
+.layout .have-account {
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.layout .have-account span {
+  color: #D5B18F;
 }
 
 .layout div {
@@ -249,6 +284,63 @@ body label {
 
 .layout #man {
   display: none;
+}
+
+.toptop .button {
+  margin: auto;
+  height: 56px;
+  padding: 0;
+  border: none;
+  background: #383638;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 4px;
+  outline: none;
+  margin-bottom: 16px;
+}
+
+.toptop .button-border {
+  margin: auto;
+  height: 56px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #383638;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 4px;
+  outline: none;
+  border: 1.5px solid #383638;
+}
+
+.toptop .top-word {
+  line-height: 24px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.top-img {
+  width: 100%;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.top-img .top-img-bg {
+  width: 100%;
+}
+
+.top-img .top-img-logo {
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
 }
 
 #app .header-container {
@@ -780,7 +872,7 @@ body label {
 }
 
 #app .top {
-  padding-top: 72px;
+  padding-top: 80px;
 }
 
 #app .top .top-point {
@@ -922,5 +1014,94 @@ body label {
   line-height: 24px;
   font-size: 16px;
   color: #bd854e;
+}
+
+#app .modal {
+  position: fixed;
+  width: 100%;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#app .modal .coupon-detail-container {
+  height: auto;
+  width: calc(100% - 48px);
+  margin: auto;
+  background: #F8F6F2;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+
+#app .modal .coupon-detail-container .close-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+}
+
+#app .modal .coupon-detail-container .coupon-detail-contents {
+  padding: 24px 0px;
+  height: auto;
+  margin: auto;
+  width: calc(100% - 48px);
+}
+
+#app .modal .coupon-detail-container .coupon-detail-contents .modal-point {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+#app .modal .coupon-detail-container .coupon-detail-contents .modal-give-point-sentence {
+  font-size: 12px;
+  line-height: 130%;
+  padding-top: 16px;
+}
+
+#app .modal .coupon-detail-container .coupon-detail-contents .modal-give-point-sentence span {
+  font-weight: bold;
+}
+
+#app .modal .coupon-detail-container .coupon-detail-contents .qr-img {
+  position: relative;
+  width: 100%;
+  background: #BDBDBD;
+}
+
+#app .modal .coupon-detail-container .coupon-detail-contents .qr-img:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  /* 高さを幅の75%に固定 */
+}
+
+#app .modal .coupon-detail-container .coupon-detail-contents .qr-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#app .modal .coupon-detail-container .coupon-detail-contents .get-point {
+  font-size: 56px;
+  line-height: 64px;
+  padding-top: 48px;
+  text-align: center;
+  padding-bottom: 24px;
+  color: #383638;
+  font-weight: 700;
+}
+
+#app .modal .coupon-detail-container .coupon-detail-contents .get-point-word {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #383638;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
