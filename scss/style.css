@@ -1104,4 +1104,82 @@ body label {
   color: #383638;
   text-align: center;
 }
+
+.pr {
+  padding-top: 72px;
+  color: #383638;
+}
+
+.pr .pr-title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.pr .pr-content {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 300;
+}
+
+.pr .pr-content .pr-paragraph {
+  margin-bottom: 32px;
+  display: block;
+  color: #161616;
+}
+
+.pr .pr-content .pr-paragraph .pr-sub-title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.ky {
+  padding-top: 72px;
+  color: #383638;
+  text-align: justify;
+}
+
+.ky .ky-content {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 300;
+}
+
+.ky .ky-content .ky-paragraph {
+  margin-bottom: 32px;
+  display: block;
+  color: #161616;
+}
+
+.ky .ky-content .ky-paragraph .ky-sub-title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.ky .ky-content .ky-paragraph .ky-summary {
+  padding: 16px;
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  background: #F4E4D4;
+}
+
+.ky .ky-content .ky-paragraph .ky-summary .ky-summary-title {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  padding-bottom: 12px;
+  display: block;
+}
+
+.ky .ky-content .ky-paragraph .ky-p {
+  margin-bottom: 24px;
+}
 /*# sourceMappingURL=style.css.map */
